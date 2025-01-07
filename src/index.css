@@ -17,6 +17,15 @@
       rgba(249, 242, 242, 1) 58%
     );
   }
+  .gameBg {
+    background: rgb(245, 210, 210);
+    background: radial-gradient(
+      circle,
+      rgba(245, 210, 210, 1) 14%,
+      rgba(247, 164, 164, 1) 39%,
+      rgba(223, 2, 2, 1) 79%
+    );
+  }
   .glassmorph {
     background: rgba(206, 99, 99, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

@@ -1,9 +1,16 @@
-import React from 'react'
+import "../../switch.css";
 
-const UnoButton:React.FC = () => {
+type SwitchMode = {
+  switchMode: () => void;
+};
+
+export const SwitchButton: React.FC<SwitchMode> = (props) => {
   return (
-    <div>UnoButton</div>
-  )
-}
-
-export default UnoButton
+    <>
+      <label className="theme focus:outline-none" onClick={props.switchMode}>
+        <input className="input" type="checkbox" />
+      <img src="/uno_logo.svg" />
+      </label>
+    </>
+  );
+};
