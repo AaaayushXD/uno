@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+}
+
+@layer base {
+  body {
+    overflow: hidden;
+  }
+  .homePage {
+    background: rgb(156, 2, 2);
+    background: linear-gradient(
+      63deg,
+      rgba(156, 2, 2, 1) 0%,
+      rgba(249, 242, 242, 1) 58%
+    );
+  }
+  .glassmorph {
+    background: rgba(206, 99, 99, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  #createBtn {
+  }
+  #createBtn:hover {
+  }
+}
