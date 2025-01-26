@@ -6,3 +6,6 @@ export interface Cards {
 export interface Opponents {
   [player: string]: Cards[];
 }
+
+export type Direction = "clockwise" | "anticlockwise";
+export type Color = "red" | "blue" | "green" | "yellow";

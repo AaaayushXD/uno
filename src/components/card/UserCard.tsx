@@ -10,11 +10,12 @@ type UserCardProps = {
 };
 
 export const UserCard: React.FC<UserCardProps> = ({ card, whileHover }) => {
+  
   return (
-    <Draggable id={card.id}>
+    <Draggable id={card.id} data={{ container: "user" }}>
       <motion.img
         src={`/cards/${Cards[card.name]}`}
-        className={"w-[150px] cursor-grab"}
+        className={"w-[150px] cursor-grab z-50"}
         whileHover={whileHover}
       />
     </Draggable>

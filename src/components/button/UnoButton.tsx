@@ -9,7 +9,7 @@ export const SwitchButton: React.FC<SwitchMode> = (props) => {
     <>
       <label className="theme focus:outline-none" onClick={props.switchMode}>
         <input className="input" type="checkbox" />
-      <img src="/uno_logo.svg" />
+        <img src="/uno_logo.svg" />
       </label>
     </>
   );

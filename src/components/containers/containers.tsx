@@ -6,16 +6,23 @@ const Containers = ({
   children,
   container,
   style,
+  className,
 }: {
   children: React.ReactNode;
   container: Container;
   style?: React.CSSProperties;
+  className?: string;
 }) => {
   const { setNodeRef } = useDroppable({
     id: container,
   });
   return (
-    <div style={style} ref={setNodeRef}>
+    <div
+      style={style}
+      ref={setNodeRef}
+      data-container={container}
+      className={className}
+    >
       {children}
     </div>
   );

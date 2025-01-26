@@ -1,29 +1,40 @@
-import { Cards } from "../@types/Cards";
+import { Cards, Direction } from "../@types/Cards";
+import { getCardInfo } from "./getCardInfo";
 import { totalDeck } from "./totalDeck";
 export const suffleDeck = (noOfPlayer: number) => {
+  if (noOfPlayer < 2 || noOfPlayer > 8) {
+    throw new Error("Number of players must be between 2 and 8");
+  }
   const { totalDeck: deck } = totalDeck();
   const shuffledDeck: Cards[] = deck.sort(() => Math.random() - 0.5);
 
-  const usersDeck: Cards[] = [];
-  const opponents: Record<string, Cards[]> = {};
+  const players: { [key: number]: Cards[] } = {};
 
-  for (let i = 1; i < noOfPlayer; i++) {
-    opponents[`player${i}`] = [];
+  for (let i = 1; i <= noOfPlayer; i++) {
+    players[i] = [];
   }
 
   let cardIndex: number = 0;
   while (cardIndex < noOfPlayer * 7) {
-    const playerIndex = cardIndex % noOfPlayer;
-
-    if (playerIndex === 0) {
-      usersDeck.push(shuffledDeck.shift()!);
-    } else {
-      opponents[`player${playerIndex}`].push(shuffledDeck.shift()!);
-    }
+    const playerIndex = cardIndex % noOfPlayer || noOfPlayer;
+    players[playerIndex].push(shuffledDeck.shift()!);
     cardIndex++;
   }
 
   const playingCard = shuffledDeck.shift()!;
-  const drawStack = shuffledDeck;
-  return { usersDeck, opponents, playingCard, drawStack };
+  const { color, action, isOpenModel } = getCardInfo(playingCard.name);
+
+  const direction: Direction = action?.endsWith("R")
+    ? "clockwise"
+    : "anticlockwise";
+
+  return {
+    players,
+    playingCard,
+    drawStack: shuffledDeck,
+    color,
+    action,
+    direction,
+    isOpenModel,
+  };
 };
