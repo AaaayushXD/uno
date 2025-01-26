@@ -1,6 +1,7 @@
 import React from "react";
 import { Cards as CardsType } from "../../@types/Cards";
 import { Cards } from "../../card";
+import { v4 as uuid } from "uuid";
 
 type PlayerCardProps = {
   card: CardsType[];
@@ -12,7 +13,7 @@ const PlayingCards: React.FC<PlayerCardProps> = ({ card }) => {
         const isTopCard = index === card.slice(-5).length - 1;
         return (
           <img
-            key={c.id}
+            key={uuid()}
             src={`/cards/${Cards[c.name]}`}
             className={`absolute w-[300px] h-[400px]`}
             style={{

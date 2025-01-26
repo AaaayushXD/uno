@@ -25,9 +25,8 @@ export const suffleDeck = (noOfPlayer: number) => {
   const { color, action, isOpenModel } = getCardInfo(playingCard.name);
 
   const direction: Direction = action?.endsWith("R")
-    ? "clockwise"
-    : "anticlockwise";
-
+    ? "anticlockwise"
+    : "clockwise";
   return {
     players,
     playingCard,
